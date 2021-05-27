@@ -29,6 +29,7 @@ public class TeamController {
 		@RequestMapping(value="/teams/{teamName}",method = RequestMethod.GET)
 		public Team getTeam(@PathVariable String teamName) {
 			Team team= this.teamRepo.findByName(teamName);
+			System.out.println("Checking the git changes");
 			team.setMatches(matchRepo.findLatestMatchByTeamName(teamName,5));
 			return team;
 		}
